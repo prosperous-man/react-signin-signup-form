@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+.auth-signUp {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .auth-signUp {
+    grid-template-columns: 40% 60%;
+  }
+}
+.auth-signUp > div {
+  padding: 2rem;
+}
+.auth-signUp .hero {
+  font-weight: normal;
+  background-image: url(../../assets/images/background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: left top;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .auth-signUp .hero {
+    height: 100vh;
+    box-sizing: border-box;
+  }
+}
+.auth-signUp .hero .bottomShape {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.auth-signUp .hero .topShape {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 400px;
+}
+.auth-signUp .hero-image {
+  max-width: 100%;
+}
+.auth-signUp .hero-content a {
+  display: block;
+  text-align: center;
+}
+.auth-signUp .hero-content a img {
+  height: 30px;
+}
+.auth-signUp .hero-content h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 38px;
+}
+.auth-signUp .hero h1 {
+  font-size: 1.5rem;
+  margin-bottom: 28px;
+}
+.auth-notice {
+  text-align: center;
+  font-weight: 500;
+  color: #5a5f7d;
+  font-size: 14px;
+}
+.auth-notice a {
+  margin-left: 4px;
+  color: #1890ff;
+  text-decoration: none;
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .auth-notice {
+    text-align: end;
+  }
+}
+.auth-container {
+  max-width: 400px;
+  justify-self: center;
+}
+.auth-content .form-title {
+  text-align: center;
+}
+.auth-content .form-title span {
+  color: #ff0096;
+}
+@media (min-width: 768px) {
+  .auth-content .form-title {
+    text-align: end;
+  }
+}
+.checkbox-label {
+  font-size: 14px;
+  text-align: center;
+  color: #272b41;
+  margin: 20px 0;
+}
+.form-button {
+  display: flex;
+  justify-content: center;
+}
+.form-button button {
+  margin-right: 1rem;
+}
+.view {
+  display: flex;
+}
+.view-item {
+  border-radius: 50%;
+  box-shadow: #9299b8 14 10px 0px 20px;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+.view-item.active {
+  background: #5f63f2;
+  color: white;
+}
