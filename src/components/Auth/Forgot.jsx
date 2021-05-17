@@ -1,6 +1,5 @@
-import {Checkbox, FormControlLabel} from "@material-ui/core";
 import React, {useState} from "react";
-
+import {validateEmail} from "../util/util";
 import logo from "../../assets/images/logo.svg";
 import topShape from "../../assets/images/shapetop.png";
 import bottomShape from "../../assets/images/shapebottom.png";
@@ -30,14 +29,13 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 
-const LoginView = ({onClick, setData}) => {
+const ForgotView = ({onClick, setData}) => {
     const [isClickedNext, setIsClickedNext] = useState(false);
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
     const formValidate = () => {
         setIsClickedNext(true);
-        if (email == "" || password == "") {
+        if (email == "" || !validateEmail(email)) {
             return;
         }
         onClick();
@@ -48,48 +46,28 @@ const LoginView = ({onClick, setData}) => {
             <MyInput
                 placehol
                 required={true}
-                label={"Username or Email Address"}
-                errMsg={"Please input username or email!"}
-                status={!isClickedNext && email.length == 0 ? "init" : (isClickedNext && email.length == 0 ? "error" : "init")}
+                label={"Email Address"}
+                errMsg={"Please input email address!"}
+                status={!isClickedNext && email.length == 0 ? "init" : (isClickedNext && (email.length == 0 || !validateEmail(email)) ? "error" : "init")}
                 value={email}
-                type={'text'}
+                type={'email'}
                 updateText={(val) => {
                     setEmail(val)
                 }}/>
-            <MyInput
-                required={true}
-                label={"Password"}
-                errMsg={"Please input password!"}
-                status={!isClickedNext && password.length == 0 ? "init" : (isClickedNext && password.length == 0 ? "error" : "init")}
-                value={password}
-                type={'text'}
-                updateText={(val) => {
-                    setPassword(val)
-                }}/>
 
-            <div className={"item-flex"}>
-                <FormControlLabel
-                    value="end"
-                    control={<Checkbox color="primary"/>}
-                    label="Keep me logged in"
-                    labelPlacement="end"
-                    // classes={classes.font15}
-                />
-                <div className="auth-notice" style={{display:"inline"}}>
-                    <Link to={"/reset"}>Forgot password?</Link>
-                </div>
-            </div>
             <div className="form-button">
-                <Box mt={2}>
-                    <ColorButton
-                        onClick={() => {
-                            formValidate();
-                        }}>
-                        Sign in
-                    </ColorButton>
-
-                </Box>
+                <ColorButton
+                    onClick={() => {
+                        formValidate();
+                    }}>
+                    Send Reset Instructions
+                </ColorButton>
             </div>
+
+            <Box mt={3} className="auth-notice_1">
+                <span>Return to </span>
+                <Link to={"/login"}>Sign in</Link>
+            </Box>
         </>
     );
 };
@@ -117,17 +95,18 @@ const SignIn = () => {
                 </div>
             </div>
             <div>
-                <div className="auth-notice">
-                    <span>Don’t have an account?</span>
-                    <Link to={"/signup"}>Sign up</Link>
-                </div>
+
                 <div className="auth-container">
                     <div className="auth-content">
                         <form action="" className="form">
                             <h1 className="form-title">
-                                Sign In to <span>Admin</span>
+                                Forgot Password?
                             </h1>
-                            <LoginView
+                            <Box mt={5} mb={3}>
+                                Enter the email address you used when you joined and we’ll send you instructions to
+                                reset your password.
+                            </Box>
+                            <ForgotView
                                 setData={setData}
                                 onClick={() => {
                                 }}

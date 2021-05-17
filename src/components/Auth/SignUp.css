@@ -71,6 +71,12 @@ body {
   text-decoration: none;
   background-color: transparent;
 }
+.auth-notice_1 a {
+  margin-left: 4px;
+  color: #1890ff;
+  text-decoration: none;
+  background-color: transparent;
+}
 @media (min-width: 768px) {
   .auth-notice {
     text-align: end;
@@ -79,16 +85,21 @@ body {
 .auth-container {
   max-width: 400px;
   justify-self: center;
+  margin:auto;
+}
+.form-title{
+  font-size:24px;
+  font-weight:600;
 }
 .auth-content .form-title {
   text-align: center;
 }
 .auth-content .form-title span {
-  color: #ff0096;
+  color: #ff69a5;
 }
 @media (min-width: 768px) {
   .auth-content .form-title {
-    text-align: end;
+    text-align: initial;
   }
 }
 .checkbox-label {
@@ -99,11 +110,19 @@ body {
 }
 .form-button {
   display: flex;
-  justify-content: center;
+
 }
 .form-button button {
   margin-right: 1rem;
 }
+
+@media (max-width: 768px) {
+  .form-button{
+    justify-content: center;
+  }
+}
+
+
 .view {
   display: flex;
 }
@@ -122,4 +141,11 @@ body {
 .view-item.active {
   background: #5f63f2;
   color: white;
+}
+
+
+.item-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

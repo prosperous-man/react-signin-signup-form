@@ -1,17 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./components/Auth/Login";
+import Login_old from "./components/Auth/Login";
 import SignUp from "./components/Auth/SignUp";
+import Forgot from "./components/Auth/Forgot";
 
 const App = () => {
   return (
     <Router>
       <Switch>
         <Route path="/login">
-          <Login/>
+          <Login_old/>
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+        <Route path="/reset">
+          <Forgot />
         </Route>
         <Route path="/">
           <SignUp />
